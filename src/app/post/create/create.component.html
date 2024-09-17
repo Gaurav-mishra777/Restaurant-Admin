@@ -1,0 +1,46 @@
+<div class="container">
+    <h1 class="heading">Add Restaurant</h1>
+
+    <a href="#" routerLink="/post/index" class="btn btn-primary">Back</a>
+
+    <form [formGroup]="form" (ngSubmit)="submit()">
+
+        <div class="form-group">
+            <label for="name">Name:</label>
+            <input
+                formControlName="name"
+                id="name"
+                type="text"
+                class="form-control">
+            <div *ngIf="f['name'].touched && f['name'].invalid" class="alert alert-danger">
+                <div *ngIf="f['name'].errors && f['name'].errors['required']">Title is required.</div>
+            </div>
+        </div>
+      <div class="form-group">
+        <label for="username">City:</label>
+        <input
+          formControlName="username"
+          id="username"
+          type="text"
+          class="form-control">
+        <div *ngIf="f['username'].touched && f['username'].invalid" class="alert alert-danger">
+          <div *ngIf="f['username'].errors && f['username'].errors['required']">Title is required.</div>
+        </div>
+      </div>
+
+        <div class="form-group">
+            <label for="city">Discription</label>
+            <textarea
+                formControlName="city"
+                id="city"
+                type="text"
+                class="form-control">
+            </textarea>
+            <div *ngIf="f['city'].touched && f['city'].invalid" class="alert alert-danger">
+                <div *ngIf="f['city'].errors && f['city'].errors['required']">Body is required.</div>
+            </div>
+        </div>
+
+        <button class="btn btn-primary" type="submit" [disabled]="!form.valid">Submit</button>
+    </form>
+</div>
